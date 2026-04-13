@@ -1,6 +1,4 @@
-/* ==========================================
-   SCRIPT.JS - ANIMATIONS & INTERACTIVITÉ
-   ========================================== */
+
 
 // ========== INITIALISATION ==========
 document.addEventListener('DOMContentLoaded', () => {
