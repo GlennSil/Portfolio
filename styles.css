@@ -1,4 +1,6 @@
-
+/* ==========================================
+   STYLES CSS - PORTFOLIO FUTURISTE
+   ========================================== */
 
 :root {
     --primary: #00d9ff;
@@ -751,6 +753,14 @@ section {
     box-shadow: inset 0 0 18px rgba(255, 255, 255, 0.08);
 }
 
+.avatar-meta {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+}
+
 .avatar-name {
     color: #ffffff;
     font-size: 1rem;
@@ -898,102 +908,177 @@ section {
     background: rgba(0, 217, 255, 0.02);
 }
 
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 2rem;
-    margin-bottom: 3rem;
+.skills-showcase {
+    display: block;
+    margin-bottom: 2.5rem;
 }
 
-.skill-card {
-    perspective: 1000px;
-    cursor: pointer;
-}
-
-.card-inner {
+.skills-category,
+.skills-badges {
     position: relative;
-    width: 100%;
-    height: 220px;
-    transition: transform 0.6s;
-    transform-style: preserve-3d;
+    background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(0, 217, 255, 0.03)),
+        rgba(8, 15, 35, 0.72);
+    border: 1px solid rgba(0, 217, 255, 0.14);
+    border-radius: 24px;
+    backdrop-filter: blur(18px);
+    overflow: hidden;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.25);
 }
 
-.skill-card:hover .card-inner {
-    transform: rotateY(180deg);
-}
-
-.card-front,
-.card-back {
+.skills-category::before,
+.skills-badges::before {
+    content: '';
     position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
+    inset: 0;
+    background:
+        radial-gradient(circle at top right, rgba(0, 217, 255, 0.18), transparent 35%),
+        radial-gradient(circle at bottom left, rgba(236, 72, 153, 0.12), transparent 30%);
+    pointer-events: none;
+}
+
+.skills-categories {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.skills-category {
+    padding: 1.6rem;
+    transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
+}
+
+.skills-category:hover {
+    transform: translateY(-6px);
+    border-color: rgba(0, 217, 255, 0.28);
+    box-shadow: 0 28px 70px rgba(0, 217, 255, 0.1);
+}
+
+.category-header {
+    position: relative;
+    z-index: 1;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
-    background: var(--glass);
-    backdrop-filter: blur(10px);
-    border: 2px solid var(--border);
-    border-radius: 12px;
-    padding: 1.5rem;
-    text-align: center;
-    transition: all var(--transition);
+    gap: 1rem;
+    margin-bottom: 1.4rem;
 }
 
-.card-front {
-    background: linear-gradient(135deg, rgba(0, 217, 255, 0.1), rgba(124, 58, 237, 0.1));
+.category-icon {
+    width: 58px;
+    height: 58px;
+    border-radius: 18px;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(0, 217, 255, 0.2);
+    background: linear-gradient(135deg, rgba(0, 217, 255, 0.18), rgba(124, 58, 237, 0.12));
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
-.card-back {
-    transform: rotateY(180deg);
-    background: linear-gradient(135deg, rgba(124, 58, 237, 0.15), rgba(236, 72, 153, 0.1));
+.category-icon i {
+    font-size: 1.5rem;
+    color: var(--primary);
 }
 
-.card-front i {
-    font-size: 3rem;
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    margin-bottom: 1rem;
-}
-
-.card-front h3 {
-    font-size: 1.3rem;
+.category-header h3 {
     color: var(--text-light);
+    font-size: 1.35rem;
 }
 
-.card-back p {
+.category-skills {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    gap: 0.9rem;
+}
+
+.skill-item {
+    display: grid;
+    grid-template-columns: 46px 1fr;
+    gap: 1rem;
+    align-items: start;
+    padding: 1rem 1.05rem;
+    border-radius: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    background: rgba(255, 255, 255, 0.04);
+    transition: transform var(--transition), border-color var(--transition), background var(--transition);
+}
+
+.skill-item:hover {
+    transform: translateX(6px);
+    border-color: rgba(0, 217, 255, 0.22);
+    background: rgba(0, 217, 255, 0.07);
+}
+
+.skill-item > i {
+    width: 46px;
+    height: 46px;
+    display: grid;
+    place-items: center;
+    border-radius: 14px;
+    background: rgba(0, 217, 255, 0.08);
+    color: var(--primary);
+    font-size: 1.2rem;
+}
+
+.skill-item h4 {
+    color: var(--text-light);
+    margin-bottom: 0.35rem;
+    font-size: 1.02rem;
+}
+
+.skill-item p {
     color: var(--text-muted);
-    line-height: 1.6;
-    font-size: 0.95rem;
+    line-height: 1.65;
+    font-size: 0.93rem;
+}
+
+.old-skills-grid {
+    display: none;
 }
 
 .skills-badges {
+    padding: 1.5rem;
+}
+
+.skills-badges-title {
+    position: relative;
+    z-index: 1;
+    margin-bottom: 1rem;
+}
+
+.skills-badges-title span {
+    color: var(--text-light);
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.skills-badges-list {
+    position: relative;
+    z-index: 1;
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
-    justify-content: center;
 }
 
 .badge-item {
-    background: var(--glass);
+    background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(10px);
-    border: 1px solid var(--border);
-    padding: 0.8rem 1.5rem;
-    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 0.85rem 1.3rem;
+    border-radius: 999px;
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.6rem;
     transition: all var(--transition);
 }
 
 .badge-item:hover {
     border-color: var(--primary);
     background: rgba(0, 217, 255, 0.1);
-    box-shadow: 0 0 15px rgba(0, 217, 255, 0.3);
-    transform: translateY(-5px);
+    box-shadow: 0 0 15px rgba(0, 217, 255, 0.18);
+    transform: translateY(-4px);
 }
 
 .badge-item i {
@@ -1519,8 +1604,8 @@ section {
         grid-template-columns: 1fr;
     }
 
-    .skills-grid {
-        grid-template-columns: repeat(2, 1fr);
+    .skills-category {
+        padding: 1.3rem;
     }
 
     .timeline::before {
@@ -1569,8 +1654,21 @@ section {
         justify-content: center;
     }
 
-    .skills-grid {
+    .category-header {
+        align-items: flex-start;
+    }
+
+    .skill-item {
         grid-template-columns: 1fr;
+    }
+
+    .skill-item > i {
+        width: 42px;
+        height: 42px;
+    }
+
+    .skills-badges-list {
+        flex-direction: column;
     }
 
     .projects-grid {
