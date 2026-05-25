@@ -1,4 +1,6 @@
-
+/* ==========================================
+   SCRIPT.JS - ANIMATIONS & INTERACTIVITÉ
+   ========================================== */
 
 // ========== INITIALISATION ==========
 document.addEventListener('DOMContentLoaded', () => {
@@ -428,9 +430,6 @@ function initContactButtons() {
             if (btn.classList.contains('btn-email')) {
                 const email = 'glennsilvere.ivombo@eidia.euromed.org';
                 window.location.href = `mailto:${email}`;
-            } else if (btn.classList.contains('btn-whatsapp')) {
-                const phone ='212778336608';
-                window.open(`https://wa.me/${phone}`, '_blank');
             } else if (btn.classList.contains('btn-linkedin')) {
                 window.open('https://www.linkedin.com/in/glenn-ivombo', '_blank');
             }
