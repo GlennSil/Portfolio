@@ -5,7 +5,8 @@
 // ========== INITIALISATION ==========
 document.addEventListener('DOMContentLoaded', () => {
     console.log('🚀 Portfolio chargé avec succès!');
-    
+   
+    initLanguageSwitcher();
     initCurseur();
     initTypingEffect();
     initNavigation();
