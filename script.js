@@ -104,6 +104,40 @@ function initTypingEffect() {
     type();
 }
 
+// ========== LANGUAGE SWITCHER ==========
+function initLanguageSwitcher() {
+    const langButtons = document.querySelectorAll('.lang-btn');
+
+    // Set initial active button
+    updateActiveLangButton();
+
+    langButtons.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const lang = btn.getAttribute('data-lang');
+            setLanguage(lang);
+            updateActiveLangButton();
+
+            // Close mobile menu if open
+            const navMenu = document.querySelector('.nav-menu');
+            if (navMenu && navMenu.style.display === 'flex') {
+                navMenu.style.display = 'none';
+            }
+        });
+    });
+}
+
+function updateActiveLangButton() {
+    const langButtons = document.querySelectorAll('.lang-btn');
+    langButtons.forEach(btn => {
+        if (btn.getAttribute('data-lang') === currentLanguage) {
+            btn.classList.add('active');
+        } else {
+            btn.classList.remove('active');
+        }
+    });
+}
+
 // ========== NAVIGATION ACTIVE ==========
 function initNavigation() {
     const navLinks = document.querySelectorAll('.nav-link');
