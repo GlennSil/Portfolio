@@ -11,12 +11,12 @@ const translations = {
         // Hero
         heroTitle: 'GLENN SILVÈRE IVOMBO',
         heroTyping: [
-            'Étudiant en ingénierie robotique cobotique',
+            'Étudiant en ingénierie robotique et cobotique',
             'Passionné par la programmation embarquée',
             'Initiation au systèmes autonomes',
             'Créateur de solutions innovantes'
         ],
-        heroDescription: 'Étudiant en d\'ingénierie robotique cobotique, passionné par les systèmes embarqués et l\'automatisation intelligente.',
+        heroDescription: 'Étudiant en ingénierie robotique et cobotique, passionné par les systèmes embarqués et l\'automatisation intelligente.',
         heroBtnProjects: 'Découvrir mes projets',
         heroBtnCV: 'Télécharger CV',
 
@@ -125,12 +125,12 @@ const translations = {
         // Hero
         heroTitle: 'GLENN SILVÈRE IVOMBO',
         heroTyping: [
-            'Student in robotic engineering and coboticsks',
+            'Robotics and cobotics engineering student',
             'Passionate about embedded programming',
             'Autonomous systems enthusiast',
             'Innovative solutions creator'
         ],
-        heroDescription: 'Robotics and cobotic engineering student, passionate about embedded systems and intelligent automation.',
+        heroDescription: 'Robotics and cobotics engineering student, passionate about embedded systems and intelligent automation.',
         heroBtnProjects: 'Discover my projects',
         heroBtnCV: 'Download CV',
 
@@ -255,8 +255,19 @@ function updatePageContent() {
     const heroTitle = document.querySelector('.hero-title .neon-glow');
     if (heroTitle) heroTitle.textContent = getTranslation('heroTitle');
 
+    // Ensure there's a single `.hero-description` element (avoid accidental duplicates)
+    const heroDescs = document.querySelectorAll('.hero-description');
+    if (heroDescs.length > 1) {
+        heroDescs.forEach((el, i) => {
+            if (i > 0) el.remove();
+        });
+    }
     const heroDesc = document.querySelector('.hero-description');
-    if (heroDesc) heroDesc.textContent = getTranslation('heroDescription');
+    if (heroDesc) {
+        // Replace content fully to avoid text accumulation / overlap
+        heroDesc.textContent = '';
+        heroDesc.textContent = getTranslation('heroDescription');
+    }
 
     // Hero buttons
     const heroButtons = document.querySelectorAll('.hero-buttons .btn');
