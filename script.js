@@ -63,12 +63,7 @@ function initTypingEffect() {
     const textElement = document.querySelector('.typing-effect');
     if (!textElement) return;
 
-    const texts = [
-        'Étudiant en ingénierie robotique cobotique',
-        'Passionné par la programmation embarquée',
-        'Initiation au systèmes autonomes',
-        'Créateur de solutions innovantes'
-    ];
+    const texts = getTranslation('heroTyping');
 
     let currentTextIndex = 0;
     let currentCharIndex = 0;
